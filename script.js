@@ -14,9 +14,12 @@ async function getWeather() {
             document.getElementById("result").innerHTML = "<p>City not found. Try again.</p>"
             return
         }
+        document.getElementById("result").innerHTML = "<p>Loading...</p>";
+        const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
 
         document.getElementById("result").innerHTML = `
+        <img src= ${iconUrl} alt="weather icon"/>
         <h2>${data.name}, ${data.sys.country}</h2>
         <p>🌡️ Temperature: ${data.main.temp}°C</p>
         <p>🌤️ Weather: ${data.weather[0].description}</p>
@@ -30,4 +33,7 @@ async function getWeather() {
   }
     
 }
+document.getElementById("userinput").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") getWeather();
+});
 
