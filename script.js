@@ -14,6 +14,19 @@ async function getWeather() {
             document.getElementById("result").innerHTML = "<p>City not found. Try again.</p>"
             return
         }
+        const condition = data.weather[0].id;
+
+        if(condition === 800){
+            // document.body.style.backgroundColor = '#3084f1 ';
+            document.body.classList.add('sunny-background')
+        }
+        if(condition >= 801 &&  condition <= 804){
+            // document.body.style.backgroundColor = '#53789E '
+            document.body.classList.add('cloudy-background') 
+        }
+        if(condition >= 300 && condition <= 321 || condition >=500 && condition <= 531 ){
+            document.body.classList.add('rainy-background')
+        }
         document.getElementById("result").innerHTML = "<p>Loading...</p>";
         const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
