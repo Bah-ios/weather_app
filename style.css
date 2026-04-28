@@ -11,9 +11,9 @@ body {
 .sunny-background {
   width: 100%;
   height: 100vh;
-  
+
   background: linear-gradient(180deg, #87CEEB 0%, #FEF9E7 70%, #FAD7A0 100%);
-  
+
   background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 200, 0.4) 0%, transparent 40%), 
                     linear-gradient(180deg, #87CEEB 0%, #FEF9E7 70%, #FAD7A0 100%);
   position: relative;
@@ -23,6 +23,7 @@ body {
   width: 100%;
   height: 100vh;
   background: linear-gradient(135deg, #D3CCE3 0%, #E9E4F0 50%, #BDC3C7 100%);
+  
   background-blend-mode: overlay;
   box-shadow: inset 0 0 100px rgba(0,0,0,0.05); /* Adds internal softness */
 }
@@ -79,4 +80,54 @@ button:hover {
 #result h2 {
   font-size: 22px;
   margin-bottom: 0.5rem;
+}
+/* ===== Search History Container ===== */
+#searchHistory {
+  margin-top: 15px;
+  padding: 12px;
+  color: #1a1a2e;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+
+  backdrop-filter: blur(8px);
+}
+
+/* ===== History List ===== */
+#historyList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display:grid;
+  
+  gap: 8px;
+  justify-content: center;
+}
+
+/* ===== History Items ===== */
+#historyList li {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border-radius: 16px;
+
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+#historyList li:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Click */
+#historyList li:active {
+  transform: scale(0.95);
+}
+
+/* ===== Empty State ===== */
+#historyList:empty::after {
+  content: "No recent searches";
+  font-size: 13px;
+  opacity: 0.6;
 }
